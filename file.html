@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Buttons Example</title>
+  <style>
+    /* Style for the size buttons */
+    .size-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    /* Style for the active size button */
+    .size-button.active {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Size buttons with the size-button class -->
+  <button class="size-button active" onclick="setSize('small')">Small</button>
+  <button class="size-button" onclick="setSize('medium')">Medium</button>
+  <button class="size-button" onclick="setSize('large')">Large</button>
+
+  <!-- Display selected size -->
+  <p id="selectedSize">Selected Size: Small</p>
+
+  <script>
+    // JavaScript function to handle size selection
+    function setSize(size) {
+      // Remove 'active' class from all buttons
+      var buttons = document.querySelectorAll('.size-button');
+      buttons.forEach(function(button) {
+        button.classList.remove('active');
+      });
+
+      // Add 'active' class to the clicked button
+      var selectedButton = document.querySelector('.size-button[data-size="' + size + '"]');
+      selectedButton.classList.add('active');
+
+      // Update the selected size text
+      document.getElementById('selectedSize').innerText = 'Selected Size: ' + size;
+    }
+  </script>
+
+</body>
+</html
